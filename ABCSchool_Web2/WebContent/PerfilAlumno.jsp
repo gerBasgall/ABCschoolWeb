@@ -19,6 +19,7 @@
         <ul>
           <li><a href="PerfilAlumno.jsp">Mis clases</a></li>
           <li><a href="ReservaTuClase.jsp">Reserva tu clase</a></li>
+		  <li><a href="CancelarClase.jsp">Cancela una clase</a></li>
           <li><a href="">Mi perfil</a></li>
           <ul class="end">
             <li><a href="Inicio.jsp">

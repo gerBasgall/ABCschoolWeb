@@ -6,6 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximun-scale-1, minimun-scale=1">
   <title>ABC school</title>
+  <meta charset="utf-8" />
   <!-- enlazo css con el doc html-->
   <link rel="stylesheet" href="css/Alumno/ReservarClase.css" type="text/css" />
 </head>
@@ -18,9 +19,10 @@
       <ul>
         <li><a href="PerfilAlumno.jsp">Mis clases</a></li>
         <li><a href="ReservaTuClase.jsp">Reserva tu clase</a></li>
+		<li><a href="CancelarClase.jsp">Cancela una clase</a></li>
         <li><a href="">Mi perfil</a></li>
         <ul class="end">
-          <li><a href="">
+          <li><a href="Inicio.jsp">
               <span>Cerrar sesion</span>
             </a>
           </li>
