@@ -65,7 +65,12 @@ public class ReservaTuClaseServlet extends HttpServlet {
 		ServletContext context = getServletContext();
 		String usuario = (String)context.getAttribute("usuario");
 	if (p!=null && m!=null) {
-		BusinessDelegate.getInstancia().altaReserva(-1, 0, 400, 1, 0, Calendar.getInstance().getTime(),usuario , clases);
+		try {
+			BusinessDelegate.getInstancia().altaReserva(-1, 0f, 400f, 1, false, Calendar.getInstance().getTime(),usuario , null /*clases*/);
+		} catch (CommunicationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	}
 
