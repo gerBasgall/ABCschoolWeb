@@ -168,6 +168,47 @@ toggle between hiding and showing the dropdown content */
     }
   </script>
 
+<table>
+	<form action="Login" name="formulario" method = "post">
+      <tbody>
+        <tr>
+          <th style="vertical-align: inherit; background: linear-gradient(#FFDA63, #FFB940); width: 200px; height: 46px;"><b><span
+
+                style="color: #ff6600;">Materia</span></b></th>
+          <th style="vertical-align: inherit; background: linear-gradient(#FFDA63, #FFB940); width: 200px; height: 46px;"><b><span
+
+                style="color: #996633;"><span style="color: #ff6600;">Profesor</span></span></b></th>
+          <th style="vertical-align: inherit; background: linear-gradient(#FFDA63, #FFB940); width: 200px; height: 46px;"><b><span
+
+                style="color: #ff6600;">Día<br>
+              </span></b></th>
+        </tr>
+        <% for(int i=0; i<5; i++) { %>
+        <tr>
+          <th style="vertical-align: inherit; background: linear-gradient(#FFDA63, #FFB940);"><b><span
+
+                style="color: #ff6600;"><%= i  %></span></b></th>
+          <th style="vertical-align: inherit; background: linear-gradient(#FFDA63, #FFB940);"><b><span
+
+                style="color: #996633;"><span style="color: #ff6600;">matematica</span></span></b></th>
+          <th style="vertical-align: inherit; background: linear-gradient(#FFDA63, #FFB940);"><b><span
+
+                style="color: #ff6600;">matematica<br>
+              </span></b></th>
+          
+          <th style="vertical-align: inherit; background-color: white;"><b><span
+
+                style="color: #ff6600;"><button href="ReservaClase?num=<%= "aca va id clase" %>">Agregar a reserva</button><br>
+              </span></b></th>
+            
+        </tr>
+    <% } %>
+      </tbody>
+     </table>
+    </table>
+     <button>Reservar</button>
+ 
+
 
 </body>
 </html>
