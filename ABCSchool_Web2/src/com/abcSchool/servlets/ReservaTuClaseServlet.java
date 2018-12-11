@@ -1,6 +1,7 @@
 package com.abcSchool.servlets;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Calendar;
 
 import javax.naming.CommunicationException;
@@ -12,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import delegates.BusinessDelegate;
+import dto.ClaseDTO;
 import dto.MateriaDTO;
 import dto.ProfesorDTO;
 
@@ -66,6 +68,8 @@ public class ReservaTuClaseServlet extends HttpServlet {
 		String usuario = (String)context.getAttribute("usuario");
 	if (p!=null && m!=null) {
 		try {
+			ArrayList<ClaseDTO>c =new ArrayList<ClaseDTO>();
+			//c.add(c);
 			BusinessDelegate.getInstancia().altaReserva(-1, 0f, 400f, 1, false, Calendar.getInstance().getTime(),usuario , null /*clases*/);
 		} catch (CommunicationException e) {
 			// TODO Auto-generated catch block
