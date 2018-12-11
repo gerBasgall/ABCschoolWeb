@@ -3,7 +3,7 @@ package com.abcSchool.servlets;
 import java.io.IOException;
 
 import javax.naming.CommunicationException;
-import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -64,6 +64,8 @@ public class LoginServlet extends HttpServlet {
 			boolean loggedIn = BusinessDelegate.getInstancia().loginCliente(usr, clave, codigo);
 			if (loggedIn)
 			{
+				ServletContext context = getServletContext();
+				context.setAttribute("usuario", usr);
 				if (codigo == 1)
 				{
 					System.out.println("alumno logged in");
