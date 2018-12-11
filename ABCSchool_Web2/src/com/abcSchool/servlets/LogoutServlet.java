@@ -30,6 +30,7 @@ public class LogoutServlet extends HttpServlet {
 	{
 		System.out.println("logging out");
 		HttpSession session = request.getSession();
+		session.setAttribute("isLoggedIn", false);
 		session.invalidate();
 		response.sendRedirect("Inicio.jsp");
 	}

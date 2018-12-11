@@ -10,7 +10,12 @@
   <link rel="stylesheet" href="css/Alumno/ReservarClase.css" type="text/css" />
 </head>
 <body>
-
+<script>
+userObj2 = ${materias};
+console.log(userObj2.length)
+userObj = '${materias[0].nombre}';
+console.log(userObj)
+</script>
 <header>
     <input type="checkbox" id="btn-menu">
     <label for="btn-menu"><img src="images/cloud-with-three-menu-dots_icon-icons.com_56533.png"></label>
@@ -32,13 +37,13 @@
     <button onclick="myFunctionMateria()" class="dropbtn">Materia</button>
     <div id="myDropdownMateria" class="dropdown-content">
       <input type="text" placeholder="Search.." id="myInputMateria" onkeyup="filterFunction()">
-      <!-- <a href="#Lengua">Lengua</a>
+      <a href="#Lengua">Lengua</a>
       <a href="#Matematicas">Matematicas</a>
       <a href="#Historia">Historia</a>
       <a href="#Civica">Civica</a>
       <a href="#Ingles">Ingles</a>
       <a href="#Frances">Frances</a>
-      <a href="#Chino">Chino</a> -->
+      <a href="#Chino">Chino</a>
     </div>
   </div>
   <div class="dropdown">
@@ -166,6 +171,7 @@ toggle between hiding and showing the dropdown content */
         }
       }
     }
+   
   </script>
 
 

@@ -1,9 +1,11 @@
 package com.abcSchool.servlets;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Calendar;
 
 import javax.naming.CommunicationException;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,19 +16,20 @@ import javax.servlet.http.HttpServletResponse;
 import delegates.BusinessDelegate;
 import dto.MateriaDTO;
 import dto.ProfesorDTO;
-
 /**
  * Servlet implementation class LoginServlet
  */
-//@WebServlet(name = "ReservaTuClase", urlPatterns = { "/ReservaTuClase" })
-@WebServlet("/Login")
-public class ReservaTuClaseServlet extends HttpServlet {
+//@WebServlet(name = "/ReservaTuClase", urlPatterns = { "/ReservaTuClase.jsp" })
+@WebServlet("/ReservaTuClase")
+public class ReservaTuClaseServlet extends HttpServlet
+{
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ReservaTuClaseServlet() {
+    public ReservaTuClaseServlet()
+    {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -36,7 +39,24 @@ public class ReservaTuClaseServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doPost(request, response);
+		System.out.println("uwu");
+		ArrayList<MateriaDTO> materias = new ArrayList<MateriaDTO>();
+		//materias = BusinessDelegate.getInstancia().obtenerMaterias();
+		MateriaDTO m= new MateriaDTO("Lengua",1);
+		MateriaDTO m2= new MateriaDTO("Matematica",2);
+		MateriaDTO m3= new MateriaDTO("Fisica",3);
+		MateriaDTO m4= new MateriaDTO("Programacion",4);
+		MateriaDTO m5= new MateriaDTO("Latin",5);
+		materias.add(m);
+		materias.add(m2);
+		materias.add(m3);
+		materias.add(m4);
+		materias.add(m5);
+		request.setAttribute("materias", materias);
+		System.out.println(request.getAttribute("materias"));
+		RequestDispatcher dispatch = request.getRequestDispatcher("ReservaTuClase.jsp");
+        dispatch.forward(request, response);
+		//doPost(request, response);
 	}
 
 	/**

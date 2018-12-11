@@ -37,11 +37,11 @@ public class LoginServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		//doPost(request, response);
 		
-		HttpSession context = request.getSession();
-		String usuario = (String)context.getAttribute("usuario");
-		if (usuario !=null)
+		HttpSession session = request.getSession();
+		Boolean loggedIn = (Boolean) session.getAttribute("isLoggedIn");
+		if (loggedIn != null && loggedIn)
 		{
-			Integer codigo = (Integer)context.getAttribute("codigo");
+			Integer codigo = (Integer)session.getAttribute("codigo");
 			
 				if (codigo == 1)
 				{
@@ -59,9 +59,8 @@ public class LoginServlet extends HttpServlet {
 					//servlet2 is the url-pattern of the second servlet  
 					  
 					rd.forward(request, response);
-				}*/		
-			}
-
+					}*/		
+		}
 		else
 		{
 			System.out.println("noone was logged in. Asking for log in");
@@ -99,9 +98,10 @@ public class LoginServlet extends HttpServlet {
 			boolean loggedIn = BusinessDelegate.getInstancia().loginCliente(usr, clave, codigo);
 			if (loggedIn)
 			{
-				HttpSession context = request.getSession();
-				context.setAttribute("usuario", usr);
-				context.setAttribute("codigo", codigo);
+				HttpSession session = request.getSession();
+				session.setAttribute("usuario", usr);
+				session.setAttribute("codigo", codigo);
+				session.setAttribute("isLoggedIn", true);
 				if (codigo == 1)
 				{
 					System.out.println("alumno logged in");

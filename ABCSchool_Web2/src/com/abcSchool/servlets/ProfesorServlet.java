@@ -28,6 +28,7 @@ public class ProfesorServlet extends HttpServlet
 
 		protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 			String dniProfesor = request.getParameter("dniProfesor");
+			System.out.println("Adentro de Profesor Servlet");
 			ProfesorDTO profesor = null;
 			try {
 				profesor = BusinessDelegate.getInstancia().buscarProfesor(dniProfesor);
