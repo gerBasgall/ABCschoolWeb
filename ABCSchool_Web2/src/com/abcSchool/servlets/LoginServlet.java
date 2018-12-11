@@ -3,12 +3,14 @@ package com.abcSchool.servlets;
 import java.io.IOException;
 
 import javax.naming.CommunicationException;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import delegates.BusinessDelegate;
 
@@ -33,7 +35,39 @@ public class LoginServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doPost(request, response);
+		//doPost(request, response);
+		
+		HttpSession session = request.getSession();
+		Boolean loggedIn = (Boolean) session.getAttribute("isLoggedIn");
+		if (loggedIn != null && loggedIn)
+		{
+			Integer codigo = (Integer)session.getAttribute("codigo");
+			
+				if (codigo == 1)
+				{
+					System.out.println("alumno alumno logged in");
+					response.sendRedirect("Alumno.jsp");
+				}
+				else if (codigo == 2)
+				{
+					System.out.println("profesor already logged in");
+					response.sendRedirect("Profesor.jsp");
+				}
+			/*	else if (codigo == 3)
+				{
+					RequestDispatcher rd=request.getRequestDispatcher("Admin.jsp");  
+					//servlet2 is the url-pattern of the second servlet  
+					  
+					rd.forward(request, response);
+					}*/		
+		}
+		else
+		{
+			System.out.println("noone was logged in. Asking for log in");
+			RequestDispatcher dispatch = request.getRequestDispatcher("Login.jsp");
+	        dispatch.forward(request, response);
+		}
+		
 	}
 
 	/**
@@ -64,8 +98,10 @@ public class LoginServlet extends HttpServlet {
 			boolean loggedIn = BusinessDelegate.getInstancia().loginCliente(usr, clave, codigo);
 			if (loggedIn)
 			{
-				ServletContext context = getServletContext();
-				context.setAttribute("usuario", usr);
+				HttpSession session = request.getSession();
+				session.setAttribute("usuario", usr);
+				session.setAttribute("codigo", codigo);
+				session.setAttribute("isLoggedIn", true);
 				if (codigo == 1)
 				{
 					System.out.println("alumno logged in");

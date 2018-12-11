@@ -33,11 +33,11 @@
 
 	<h1 style="color: #ff6600;">Filtrar por:</h1>
 	<table
-		style="background: linear-gradient(#FFDA63, #FFB940); width: 300px; height: 60px;">
+		style="background: linear-gradient(#FFDA63, #FFB940); width: 220px; height: 60px;">
 		<form action="BuscarClases" name="formulario" method="post">
 		<tr>
 			<td>Materia:</td>
-			<td><select id="log" name="materia" required>
+			<td><select style="width: 145px;" id="log" name="materia" required>
 					<option value="selec">-seleccion-</option>
 					<option value="lengua">Lengua</option>
 					<option value="matematicas">Matematicas</option>
@@ -50,7 +50,7 @@
 		</tr>
 		<tr>
 			<td>Profesor:</td>
-			<td><select id="log" name="profesor" required>
+			<td><select style="width: 145px;" id="log" name="profesor" required>
 					<option value="selec">-seleccion-</option>
 					<option value="marco">Marco</option>
 					<option value="facundo">Facundo</option>
@@ -67,14 +67,14 @@
 			<td><input type="time" name="hora"></td>
 		</tr>
 		<tr>
-			<td><input type="submit" value="Buscar"></td>
+			<td></td><td><input type="submit" value="Buscar"></td>
 		</tr>
 		</form>
 	</table>
-
+<br>
 
 	<table>
-		<form action="Login" name="formulario" method="post">
+		<form action="" name="formulario" method="post">
 			<tbody>
 				<tr>
 					<th
@@ -85,7 +85,7 @@
 							style="color: #996633;"><span style="color: #ff6600;">Profesor</span></span></b></th>
 					<th
 						style="vertical-align: inherit; background: linear-gradient(#FFDA63, #FFB940); width: 200px; height: 46px;"><b><span
-							style="color: #ff6600;">Día<br>
+							style="color: #ff6600;">DÃ­a<br>
 						</span></b></th>
 				</tr>
 				<% for(int i=0; i<5; i++) { %>

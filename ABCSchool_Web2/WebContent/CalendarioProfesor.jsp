@@ -564,6 +564,7 @@ $(document).ready(function(){
 	});
 	
 });
+console.log(<%= request.getAttribute("materias") %>)
 </script>
 
 <h1 style="font-size: 30px; font-weight: bold;">Planificacion de clases</h1>

@@ -17,7 +17,7 @@
       <label for="btn-menu"><img src="img/cloud-with-three-menu-dots_icon-icons.com_56533.png"></label>
       <nav class="menu">
         <ul>
-          <li><a href="PerfilAlumno.jsp">Mis clases</a></li>
+          <li><a href="PerfilAlumno.jsp">Mis reservas</a></li>
           <li><a href="ReservaTuClase.jsp">Reserva tu clase</a></li>
 		  <li><a href="CancelarClase.jsp">Cancela una clase</a></li>
           <li><a href="">Mi perfil</a></li>

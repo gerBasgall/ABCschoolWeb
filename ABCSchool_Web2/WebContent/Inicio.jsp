@@ -33,7 +33,7 @@
 			<img class="avatar" src="images/abc.jpg">
 			<h2>¡Bienvenido!</h2>
 			<ul class="actions special">
-				<li><a href="Login.jsp" class="button primary">Sign In</a></li>
+				<li><a href="Login" class="button primary">Sign In</a></li>
 			</ul>
 		</section>
 	</div>
