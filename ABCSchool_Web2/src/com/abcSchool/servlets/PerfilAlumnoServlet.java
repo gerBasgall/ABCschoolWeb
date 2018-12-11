@@ -9,6 +9,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import delegates.BusinessDelegate;
 import dto.AlumnoDTO;
@@ -23,17 +24,20 @@ public class PerfilAlumnoServlet extends HttpServlet {
 		}
 
 		protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-			String dniAlumno = request.getParameter("dniAlumno");
+			HttpSession context = request.getSession();
+			String usuario = (String)context.getAttribute("usuario");
+			request.setAttribute("usuario",usuario);
+			//String dniAlumno = request.getParameter("dniAlumno");
 			AlumnoDTO alumno=null;
 			ArrayList<ReservaDTO> reservas =null;
 			try {
-				alumno = BusinessDelegate.getInstancia().buscarAlumno(dniAlumno);
+				alumno = BusinessDelegate.getInstancia().buscarAlumno(usuario);
 			} catch (CommunicationException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} //REVISAR la llamada al bd
 			try {
-				reservas = BusinessDelegate.getInstancia().obtenerReservasAlumno(dniAlumno);
+				reservas = BusinessDelegate.getInstancia().obtenerReservasAlumno(usuario);
 			} catch (CommunicationException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
