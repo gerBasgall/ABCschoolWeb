@@ -32,27 +32,29 @@
     <button onclick="myFunctionMateria()" class="dropbtn">Materia</button>
     <div id="myDropdownMateria" class="dropdown-content">
       <input type="text" placeholder="Search.." id="myInputMateria" onkeyup="filterFunction()">
-      <a href="#Lengua">Lengua</a>
+      <!-- <a href="#Lengua">Lengua</a>
       <a href="#Matematicas">Matematicas</a>
       <a href="#Historia">Historia</a>
       <a href="#Civica">Civica</a>
       <a href="#Ingles">Ingles</a>
       <a href="#Frances">Frances</a>
-      <a href="#Chino">Chino</a>
+      <a href="#Chino">Chino</a> -->
     </div>
   </div>
   <div class="dropdown">
     <button onclick="myFunctionProfesor()" class="dropbtn">Profesor</button>
     <div id="myDropdownProfesor" class="dropdown-content">
       <input type="text" placeholder="Search.." id="myInputProfesor" onkeyup="filterFunction()">
-      <a href="#Marco">Marco</a>
+    <!--   <a href="#Marco">Marco</a>
       <a href="#Facundo">Facundo</a>
       <a href="#Agustina">Agustina</a>
       <a href="#Florencia">Florencia</a>
       <a href="#German">German</a>
-      <a href="#Julian">Julian</a>
+      <a href="#Julian">Julian</a> -->
     </div>
   </div>
+  <input type="submit" value="Ingresar" onclick="validar()" name ="submitBtn">
+		<br> <br>
   <style>
     /* Dropdown Button */
     .dropbtn {
