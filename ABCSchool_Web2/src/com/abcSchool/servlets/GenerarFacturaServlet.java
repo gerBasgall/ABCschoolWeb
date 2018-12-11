@@ -23,7 +23,7 @@ class GenerarFacturaServlet extends HttpServlet {
 		String remitente=request.getParameter("remitente"); 
 		
 		BusinessDelegate.getInstancia().generarFactura(idReserva,  tipo,  remitente,  medioPago);
-		FacturaDTO factura=//FALTA METODO PARA BUSCAR LA FACTURA
+		FacturaDTO factura=BusinessDelegate.getInstancia().buscarFactura(idReserva);
 		request.setAttribute("factura",factura);
 		String jsp="/Factura.jsp"; //revisar nombre jsp
 		RequestDispatcher rd = request.getRequestDispatcher(jsp);
