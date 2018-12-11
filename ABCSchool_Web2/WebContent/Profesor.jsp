@@ -20,10 +20,10 @@
       <label for="btn-menu"><img src="images/cloud-with-three-menu-dots_icon-icons.com_56533.png"></label>
       <nav class="menu">
         <ul>
-          <li><a href="">Inicio</a></li>
+          <li><a href="Inicio.jsp">Inicio</a></li>
           <li><a href="CalendarioProfesor">Cargar clases</a></li>
           <li><a href="">Mi perfil</a></li>
-          <li><a href="Inicio.jsp">Cerrar sesion</a></li>
+          <li><a href="Logout">Cerrar sesion</a></li>
         </ul>
       </nav>
     </header>
