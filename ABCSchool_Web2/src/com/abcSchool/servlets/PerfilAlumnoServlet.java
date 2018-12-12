@@ -38,6 +38,9 @@ public class PerfilAlumnoServlet extends HttpServlet {
 			} //REVISAR la llamada al bd
 			try {
 				reservas = BusinessDelegate.getInstancia().obtenerReservasAlumno(usuario);
+				for(ReservaDTO r : reservas){
+					BusinessDelegate.getInstancia().obte
+				}
 			} catch (CommunicationException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

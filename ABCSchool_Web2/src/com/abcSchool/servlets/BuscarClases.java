@@ -1,6 +1,8 @@
 package com.abcSchool.servlets;
 
 import java.io.IOException;
+
+import javax.naming.CommunicationException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -42,7 +44,12 @@ public class BuscarClases extends HttpServlet {
 		String fecha = request.getParameter("fecha");
 		String hora = request.getParameter("hora");
 		
-		BusinessDelegate.getInstancia().buscarMateria(materia);
+		try {
+			BusinessDelegate.getInstancia().buscarMateria(materia);
+		} catch (CommunicationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		//faltan metodos de filtrado + devolver las clases
 	}
 

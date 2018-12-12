@@ -44,7 +44,12 @@ public class CancelarReservaServlet extends HttpServlet {
 		System.out.println("realizando cancelacion de reserva");
 		String reserva = request.getParameter("reserva");
 		int idReserva = Integer.parseInt(reserva);
-		BusinessDelegate.getInstancia().bajaReserva(idReserva);
+		try {
+			BusinessDelegate.getInstancia().bajaReserva(idReserva);
+		} catch (CommunicationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 	}
 
