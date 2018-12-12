@@ -1,50 +1,50 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+ pageEncoding="ISO-8859-1"%>
 <!DOCTYPE HTML>
 <html lang="es">
 
 <head>
-	<title>ABC school</title>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-	<link href="css/Login/main.css" type="text/css" rel="stylesheet" />
-	<link href="css/Login/menuDesplegable.css" type="text/css" rel="stylesheet" />
-	<script type="text/javascript" src = "js/menu.js"></script>
+ <title>ABC school</title>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+ <link href="css/Login/main.css" type="text/css" rel="stylesheet" />
+ <link href="css/Login/menuDesplegable.css" type="text/css" rel="stylesheet" />
+ <script type="text/javascript" src = "js/menu.js"></script>
 </head>
 
 <body class="landing is-preload" > <!-- onLoad= "boot()" -->
-	<header id="header" class="alt">
-		<nav id="nav">
-			<ul>
-				<li><a href="Inicio.jsp">Home</a></li>
-				<li><a href="AltaUsrAlumno.jsp" class="button">Sign Up</a></li>
-			</ul>
-		</nav>
-	</header>
+ <header id="header" class="alt">
+  <nav id="nav">
+   <ul>
+    <li><a href="Inicio.jsp">Home</a></li>
+    <li><a href="AltaUsrAlumno.jsp" class="button">Sign Up</a></li>
+   </ul>
+  </nav>
+ </header>
 
-	<form action="Login" name="formulario" method = "post">
-		<img class="avatar" src="images/abc.jpg">
-		<h2>Login</h2>
-		<input type="text" placeholder="&#129333; DNI" name="usr" required>
-		<input type="password" placeholder="&#128273; Contraseña" name="clave" required>
-		<div>
-			Loguearse como: <select id="log" name="rol" required>
-				<option value ="selec">-seleccion-</option>
-				<option value="alum">Alumno</option>
-				<option value="prof">Profesor</option>
-				<option value="admin">Administrador</option>
-			</select>
-		</div>
-		<input type="submit" value="Ingresar" onclick="validar()" name ="submitBtn">
-		<br> <br>
-		<ul>
-			<a href="#">¿Olvidaste tu contraseña?</a>
-			<br>
-			<a href="AltaUsrAlumno.jsp">Crear una cuenta</a>
-		</ul>
-	</form>
+ <form action="Login" name="formulario" method = "post">
+  <img class="avatar" src="images/abc.jpg">
+  <h2>Login</h2>
+  <input type="text" placeholder="&#129333; DNI" name="usr" required>
+  <input type="password" placeholder="&#128273; Contraseña" name="clave" required>
+  <div>
+   Loguearse como: <select id="log" name="rol" required>
+    <option value ="selec">-seleccion-</option>
+    <option value="alum">Alumno</option>
+    <option value="prof">Profesor</option>
+    <option value="admin">Administrador</option>
+   </select>
+  </div>
+  <input type="submit" value="Ingresar" onclick="validar()" name ="submitBtn">
+  <br> <br>
+  <ul>
+   <a href="#">¿Olvidaste tu contraseña?</a>
+   <br>
+   <a href="AltaUsrAlumno.jsp">Crear una cuenta</a>
+  </ul>
+ </form>
 
-	<script src="js/menu.js"></script>
+ <script src="js/menu.js"></script>
 </body>
 
 </html>

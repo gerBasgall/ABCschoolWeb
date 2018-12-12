@@ -31,7 +31,7 @@
         </ul>
       </nav>
     </header>
-    
+
 <h1 style="vertical-align: inherit; background-color: white; width: 360px; height: 46px; color: #ff6600;">Mis proximas clases:</h1>
  
  <table>

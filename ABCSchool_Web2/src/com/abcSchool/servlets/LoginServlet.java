@@ -21,14 +21,14 @@ import delegates.BusinessDelegate;
 @WebServlet("/Login")
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public LoginServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public LoginServlet() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -36,38 +36,39 @@ public class LoginServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//doPost(request, response);
-		
-		HttpSession session = request.getSession();
-		Boolean loggedIn = (Boolean) session.getAttribute("isLoggedIn");
-		if (loggedIn != null && loggedIn)
+
+		HttpSession context = request.getSession();
+		String usuario = (String)context.getAttribute("usuario");
+		if (usuario !=null)
 		{
-			Integer codigo = (Integer)session.getAttribute("codigo");
-			
-				if (codigo == 1)
-				{
-					System.out.println("alumno alumno logged in");
-					response.sendRedirect("Alumno.jsp");
-				}
-				else if (codigo == 2)
-				{
-					System.out.println("profesor already logged in");
-					response.sendRedirect("Profesor.jsp");
-				}
-			/*	else if (codigo == 3)
-				{
-					RequestDispatcher rd=request.getRequestDispatcher("Admin.jsp");  
-					//servlet2 is the url-pattern of the second servlet  
-					  
-					rd.forward(request, response);
-					}*/		
+			Integer codigo = (Integer)context.getAttribute("codigo");
+
+			if (codigo == 1)
+			{
+				System.out.println("alumno alumno logged in");
+				response.sendRedirect("Alumno.jsp");
+			}
+			else if (codigo == 2)
+			{
+				System.out.println("profesor already logged in");
+				response.sendRedirect("Profesor.jsp");
+			}
+			/* else if (codigo == 3)
+    {
+     RequestDispatcher rd=request.getRequestDispatcher("Admin.jsp");  
+     //servlet2 is the url-pattern of the second servlet  
+
+     rd.forward(request, response);
+    }*/  
 		}
+
 		else
 		{
 			System.out.println("noone was logged in. Asking for log in");
 			RequestDispatcher dispatch = request.getRequestDispatcher("Login.jsp");
-	        dispatch.forward(request, response);
+			dispatch.forward(request, response);
 		}
-		
+
 	}
 
 	/**
@@ -98,10 +99,9 @@ public class LoginServlet extends HttpServlet {
 			boolean loggedIn = BusinessDelegate.getInstancia().loginCliente(usr, clave, codigo);
 			if (loggedIn)
 			{
-				HttpSession session = request.getSession();
-				session.setAttribute("usuario", usr);
-				session.setAttribute("codigo", codigo);
-				session.setAttribute("isLoggedIn", true);
+				HttpSession context = request.getSession();
+				context.setAttribute("usuario", usr);
+				context.setAttribute("codigo", codigo);
 				if (codigo == 1)
 				{
 					System.out.println("alumno logged in");
@@ -112,13 +112,13 @@ public class LoginServlet extends HttpServlet {
 					System.out.println("profesor logged in");
 					response.sendRedirect("Profesor.jsp");
 				}
-			/*	else if (codigo == 3)
-				{
-					RequestDispatcher rd=request.getRequestDispatcher("Admin.jsp");  
-					//servlet2 is the url-pattern of the second servlet  
-					  
-					rd.forward(request, response);
-				}*/		
+				/* else if (codigo == 3)
+    {
+     RequestDispatcher rd=request.getRequestDispatcher("Admin.jsp");  
+     //servlet2 is the url-pattern of the second servlet  
+
+     rd.forward(request, response);
+    }*/  
 			}
 			else
 			{
