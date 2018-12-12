@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+
+<%@ page import ="java.util.List"%>
+<%@ page import ="java.util.ArrayList"%>
+
+
 <!DOCTYPE html>
 <html lang="es">
   <head>
@@ -34,7 +39,7 @@
 
 <h1 style="vertical-align: inherit; background-color: white; width: 360px; height: 46px; color: #ff6600;">Mis proximas clases:</h1>
  
- <table>
+ <table align="center" width="100%">
       <tbody>
         <tr>
           <th style="vertical-align: inherit; background-color: white; width: 200px; height: 46px;"><b><span
