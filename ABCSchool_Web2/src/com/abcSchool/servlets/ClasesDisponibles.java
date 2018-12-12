@@ -29,16 +29,19 @@ public class ClasesDisponibles extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		ArrayList<ClaseDTO> clases;
-		try {
-			clases = BusinessDelegate.getInstancia().verClasesDisponibles();
-			request.setAttribute("clases", clases);
-			String jsp = "PerfilAlumno.jsp"; // revisar nombre jsp
-			RequestDispatcher rd = request.getRequestDispatcher(jsp);
-			rd.forward(request, response);
-		} catch (ComunicacionException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+			try {
+				clases = BusinessDelegate.getInstancia().verClasesDisponibles();
+				request.setAttribute("clases", clases);
+				String jsp = "PerfilAlumno.jsp"; // revisar nombre jsp
+				RequestDispatcher rd = request.getRequestDispatcher(jsp);
+				rd.forward(request, response);
+			} catch (ComunicacionException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			
+		
 		
 	}
 }

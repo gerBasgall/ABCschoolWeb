@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import delegates.BusinessDelegate;
+import excepciones.ComunicacionException;
 
 /**
  * Servlet implementation class BuscarClases
@@ -44,12 +45,14 @@ public class BuscarClases extends HttpServlet {
 		String fecha = request.getParameter("fecha");
 		String hora = request.getParameter("hora");
 		
-		try {
-			BusinessDelegate.getInstancia().buscarMateria(materia);
-		} catch (CommunicationException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+
+			try {
+				BusinessDelegate.getInstancia().buscarMateria(materia);
+			} catch (ComunicacionException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		
 		//faltan metodos de filtrado + devolver las clases
 	}
 

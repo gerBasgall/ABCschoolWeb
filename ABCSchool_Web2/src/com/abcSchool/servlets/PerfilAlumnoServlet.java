@@ -54,7 +54,6 @@ public class PerfilAlumnoServlet extends HttpServlet {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			request.setAttribute("alumno",alumno);
 			request.setAttribute("reservas",reservas);
 			String jsp="/PerfilAlumno.jsp";
 			RequestDispatcher rd = request.getRequestDispatcher(jsp);

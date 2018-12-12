@@ -3,8 +3,8 @@
 
 <%@ page import ="java.util.List"%>
 <%@ page import ="java.util.ArrayList"%>
-
-
+<%@ page import ="dto.ReservaDTO"%>
+<%@ page import ="dto.ClaseDTO"%>
 <!DOCTYPE html>
 <html lang="es">
   <head>
@@ -37,6 +37,14 @@
       </nav>
     </header>
 
+<% ArrayList<ReservaDTO> list = (ArrayList<ReservaDTO>) request.getAttribute("PerfilAlumno");%>
+<%ArrayList<ClaseDTO> clases = new ArrayList();
+    		  for(ReservaDTO r : list){
+    			  for(ClaseDTO c : r.getClases()){
+    				  clases.add(c);
+    			  }
+    		  }
+    		  %>
 <h1 style="vertical-align: inherit; background-color: white; width: 360px; height: 46px; color: #ff6600;">Mis proximas clases:</h1>
  
  <table align="center" width="100%">
@@ -53,17 +61,17 @@
                 style="color: #ff6600;">Día<br>
               </span></b></th>
         </tr>
-        <% for(int i=0; i<5; i++) { %>
+        <% for(ClaseDTO c : clases) { %>
         <tr>
           <th style="vertical-align: inherit; background-color: white;"><b><span
 
-                style="color: #ff6600;"><%= i  %></span></b></th>
+                style="color: #ff6600;"><%c.getMateria();%></span></b></th>
           <th style="vertical-align: inherit; background-color: white;"><b><span
 
-                style="color: #996633;"><span style="color: #ff6600;">matematica</span></span></b></th>
+                style="color: #996633;"><span style="color: #ff6600;"><%c.getProfesor();%></span></span></b></th>
           <th style="vertical-align: inherit; background-color: white;"><b><span
 
-                style="color: #ff6600;">matematica<br>
+                style="color: #ff6600;"><%c.getHorario();%><br>
               </span></b></th>
           
         </tr>
