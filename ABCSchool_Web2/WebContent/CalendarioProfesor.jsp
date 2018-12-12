@@ -627,13 +627,13 @@ console.log(<%= request.getAttribute("materias") %>)
     <button onclick="myFunctionMateria()" class="dropbtn">Materia</button>
     <div id="myDropdownMateria" class="dropdown-content">
       <input type="text" placeholder="Search.." id="myInputMateria" onkeyup="filterFunction()">
-      <a href="#Lengua">Lengua</a>
+    <!--   <a href="#Lengua">Lengua</a>
       <a href="#Matematicas">Matematicas</a>
       <a href="#Historia">Historia</a>
       <a href="#Civica">Civica</a>
       <a href="#Ingles">Ingles</a>
       <a href="#Frances">Frances</a>
-      <a href="#Chino">Chino</a>
+      <a href="#Chino">Chino</a> -->
     </div>
 				<table style="width:100%; padding:5px;">
 					<tr>
@@ -658,7 +658,7 @@ console.log(<%= request.getAttribute("materias") %>)
 								<option value="10">10</option>
 								<option value="11">11</option>
 							</select>				
-						<td>
+						<!-- <td>
 						<td>
 							<label>Minuto inicio</label>
 							<select id="startMin" class="text ui-widget-content ui-corner-all" style="margin-bottom:12px; width:95%; padding: .4em;">
@@ -670,7 +670,7 @@ console.log(<%= request.getAttribute("materias") %>)
 								<option value="50">50</option>
 							</select>				
 						<td>
-						<td>
+						<td> -->
 							<label>Inicio AM/PM</label>
 							<select id="startMeridiem" class="text ui-widget-content ui-corner-all" style="margin-bottom:12px; width:95%; padding: .4em;">
 								<option value="AM" SELECTED>AM</option>
@@ -679,7 +679,7 @@ console.log(<%= request.getAttribute("materias") %>)
 						</td>
 					</tr>
 					<tr>
-						<td>
+						<!-- <td>
 							<label>Fecha fin</label>
 							<input type="text" name="endDate" id="endDate" value="" class="text ui-widget-content ui-corner-all" style="margin-bottom:12px; width:95%; padding: .4em;"/>				
 						</td>
@@ -718,7 +718,7 @@ console.log(<%= request.getAttribute("materias") %>)
 								<option value="AM" SELECTED>AM</option>
 								<option value="PM">PM</option>
 							</select>				
-						</td>				
+						</td> -->				
 					</tr>			
 				</table>
 				<table>

@@ -38,8 +38,8 @@ public class ReservaClase extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String idClase=request.getParameter("num");
-		BusinessDelegate.getInstancia().altaReserva(idReserva, descuento, monto, cantAlum, paga, fecha, dniAlumno, clases);
-		BusinessDelegate.getInstancia().generarFactura(idReserva, tipo, remitente, medioPago);
+		//BusinessDelegate.getInstancia().altaReserva(idReserva, descuento, monto, cantAlum, paga, fecha, dniAlumno, clases);
+		//BusinessDelegate.getInstancia().generarFactura(idReserva, tipo, remitente, medioPago);
 	}
 
 }
