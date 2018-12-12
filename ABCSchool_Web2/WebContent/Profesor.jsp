@@ -21,7 +21,7 @@
       <nav class="menu">
         <ul>
           <li><a href="Inicio.jsp">Inicio</a></li>
-          <li><a href="CalendarioProfesor">Cargar clases</a></li>
+          <li><a href="CalendarioProfesor.jsp">Cargar clases</a></li>
           <li><a href="">Mi perfil</a></li>
           <li><a href="Logout">Cerrar sesion</a></li>
         </ul>

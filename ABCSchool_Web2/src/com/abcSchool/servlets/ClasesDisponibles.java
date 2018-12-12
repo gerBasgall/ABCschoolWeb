@@ -3,6 +3,7 @@ package com.abcSchool.servlets;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import javax.naming.CommunicationException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -28,17 +29,16 @@ public class ClasesDisponibles extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		ArrayList<ClaseDTO> clases;
+		ArrayList<ClaseDTO> clases = new ArrayList<ClaseDTO>();
 			try {
 				clases = BusinessDelegate.getInstancia().verClasesDisponibles();
-				request.setAttribute("clases", clases);
-				String jsp = "PerfilAlumno.jsp"; // revisar nombre jsp
-				RequestDispatcher rd = request.getRequestDispatcher(jsp);
-				rd.forward(request, response);
-			} catch (ComunicacionException e) {
-				// TODO Auto-generated catch block
+			} catch (CommunicationException e) {
 				e.printStackTrace();
 			}
+			request.setAttribute("clases", clases);
+			String jsp = "/WEB-INF/ReservaClase.jsp";
+			RequestDispatcher rd = request.getRequestDispatcher(jsp);
+			rd.forward(request, response);
 			
 			
 		

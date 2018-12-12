@@ -1,3 +1,4 @@
+<%@page import="delegates.BusinessDelegate"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 
@@ -5,6 +6,7 @@
 <%@ page import ="java.util.ArrayList"%>
 <%@ page import ="dto.ReservaDTO"%>
 <%@ page import ="dto.ClaseDTO"%>
+<%@ page import ="dto.ProfesorDTO"%>
 <!DOCTYPE html>
 <html lang="es">
   <head>
@@ -36,15 +38,32 @@
         </ul>
       </nav>
     </header>
-
-<% ArrayList<ReservaDTO> list = (ArrayList<ReservaDTO>) request.getAttribute("PerfilAlumno");%>
-<%ArrayList<ClaseDTO> clases = new ArrayList();
+    
+ <% HttpSession context = request.getSession();
+	String usuario = (String)context.getAttribute("usuario");
+ 
+ 	ArrayList<ReservaDTO> reservas = BusinessDelegate.getInstancia().obtenerReservasAlumno(usuario);
+    ArrayList<ClaseDTO> c2 = new  ArrayList<ClaseDTO>();
+	for(ReservaDTO r : reservas){
+		ArrayList<ClaseDTO> clases = BusinessDelegate.getInstancia().obtenerClasesReserva(r.getIdReserva());
+		for(ClaseDTO c : clases){
+			r.addClase(c);
+			c2.add(c);
+		//	ProfesorDTO profesor = BusinessDelegate.getInstancia().buscarProfesor(c.getProfesor());
+			//c.setProfesor(profesor.getNombre());
+		}
+	}%>
+<%-- <%ArrayList<ReservaDTO> list = new ArrayList<ReservaDTO>();%>
+<%list = (ArrayList<ReservaDTO>) request.getAttribute("PerfilAlumnoServlet");%> --%>
+<%-- <%ArrayList<ClaseDTO> clases = new ArrayList();
     		  for(ReservaDTO r : list){
     			  for(ClaseDTO c : r.getClases()){
     				  clases.add(c);
     			  }
     		  }
-    		  %>
+    		  %>--%>
+    		  
+    		  
 <h1 style="vertical-align: inherit; background-color: white; width: 360px; height: 46px; color: #ff6600;">Mis proximas clases:</h1>
  
  <table align="center" width="100%">
@@ -55,23 +74,23 @@
                 style="color: #ff6600;">Materia</span></b></th>
           <th style="vertical-align: inherit; background-color: white; width: 200px; height: 46px;"><b><span
 
-                style="color: #996633;"><span style="color: #ff6600;">Profesor</span></span></b></th>
+                style="color: #996633;"><span style="color: #ff6600;">Profesor DNI</span></span></b></th>
           <th style="vertical-align: inherit; background-color: white; width: 200px; height: 46px;"><b><span
 
                 style="color: #ff6600;">Día<br>
               </span></b></th>
         </tr>
-        <% for(ClaseDTO c : clases) { %>
+        <% for(ClaseDTO c : c2) { %>
         <tr>
           <th style="vertical-align: inherit; background-color: white;"><b><span
 
-                style="color: #ff6600;"><%c.getMateria();%></span></b></th>
+                style="color: #ff6600;"><%out.println(c.getMateria());%></span></b></th>
           <th style="vertical-align: inherit; background-color: white;"><b><span
 
-                style="color: #996633;"><span style="color: #ff6600;"><%c.getProfesor();%></span></span></b></th>
+                style="color: #996633;"><span style="color: #ff6600;"><%out.println(c.getProfesor());%></span></span></b></th>
           <th style="vertical-align: inherit; background-color: white;"><b><span
 
-                style="color: #ff6600;"><%c.getHorario();%><br>
+                style="color: #ff6600;"><%out.println(c.getFecha());%><br>
               </span></b></th>
           
         </tr>
@@ -79,7 +98,7 @@
       </tbody>
         
     </table>
- 
+
   </body>
   
   </html>

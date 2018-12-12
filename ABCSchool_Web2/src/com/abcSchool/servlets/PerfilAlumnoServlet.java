@@ -2,6 +2,7 @@ package com.abcSchool.servlets;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 import javax.naming.CommunicationException;
 import javax.servlet.RequestDispatcher;
@@ -20,13 +21,14 @@ import dto.ReservaDTO;
 @WebServlet("/PerfilAlumno")
 public class PerfilAlumnoServlet extends HttpServlet {
 
-		private static final long serialVersionUID = 1L;
-
+		private static final long serialVersionUID = 1L;		
+		
 		protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 			doPost(request, response);
 		}
 
 		protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+			//doGet(request, response);
 			System.out.println("entre al perfilAlumno");
 			HttpSession context = request.getSession();
 			String usuario = (String)context.getAttribute("usuario");
@@ -34,15 +36,16 @@ public class PerfilAlumnoServlet extends HttpServlet {
 			System.out.println("PerfilAlumnoServlet  " + usuario);
 			//String dniAlumno = request.getParameter("dniAlumno");
 			AlumnoDTO alumno=null;
-			ArrayList<ReservaDTO> reservas =null;
+			ArrayList<ReservaDTO> reservas = new ArrayList<ReservaDTO>();
+			reservas.add(new ReservaDTO(2, 0f, 400f, 1, false, Calendar.getInstance().getTime()));
 			try {
 				alumno = BusinessDelegate.getInstancia().buscarAlumno(usuario);
 				System.out.println("PerfilAlumnoServlet  " + alumno.getContra());
 			} catch (CommunicationException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			} //REVISAR la llamada al bd
-			try {
+			}
+			/*try {
 				reservas = BusinessDelegate.getInstancia().obtenerReservasAlumno(usuario);
 				for(ReservaDTO r : reservas){
 					ArrayList<ClaseDTO> clases = BusinessDelegate.getInstancia().obtenerClasesReserva(r.getIdReserva());
@@ -53,10 +56,11 @@ public class PerfilAlumnoServlet extends HttpServlet {
 			} catch (CommunicationException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			}
+			}*/
 			request.setAttribute("reservas",reservas);
-			String jsp="/PerfilAlumno.jsp";
-			RequestDispatcher rd = request.getRequestDispatcher(jsp);
+			String jsp="/WEB-INF/PerfilAlumno.jsp";
+			//RequestDispatcher rd = request.getRequestDispatcher(jsp);
+			RequestDispatcher rd = getServletContext( ).getRequestDispatcher(jsp);
 	        rd.forward(request, response);
 		}
 }

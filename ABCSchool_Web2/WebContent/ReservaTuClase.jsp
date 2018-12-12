@@ -1,3 +1,4 @@
+<%@page import="delegates.BusinessDelegate"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ page import ="java.util.ArrayList"%>
@@ -82,7 +83,8 @@
 
   
 
-<% ArrayList<ClaseDTO> list = (ArrayList<ClaseDTO>) request.getAttribute("ClasesDisponibles");
+<% ArrayList<ClaseDTO> list = BusinessDelegate.getInstancia().verClasesDisponibles();
+//ArrayList<ClaseDTO> list = (ArrayList<ClaseDTO>) request.getAttribute("ClasesDisponibles");
 
 // print the information about every category of the list
 /*for(String category : list) {
@@ -101,7 +103,7 @@
 							style="color: #ff6600;">Materia</span></b></th>
 					<th
 						style="vertical-align: inherit; background: linear-gradient(#FFDA63, #FFB940); width: 31%; height: 46px;"><b><span
-							style="color: #996633;"><span style="color: #ff6600;" >Profesor</span></span></b></th>
+							style="color: #996633;"><span style="color: #ff6600;" >Profesor DNI</span></span></b></th>
 					<th
 						style="vertical-align: inherit; background: linear-gradient(#FFDA63, #FFB940); width: 31%; height: 46px;"><b><span
 							style="color: #ff6600;">Dia<br>
@@ -113,18 +115,18 @@
 				<tr>
 					<th
 						style="vertical-align: inherit; background: linear-gradient(#FFDA63, #FFB940);"><b><span
-							style="color: #ff6600;"><%c.getMateria();%></span></b></th>
+							style="color: #ff6600;"><%out.println(c.getMateria());%></span></b></th>
 					<th
 						style="vertical-align: inherit; background: linear-gradient(#FFDA63, #FFB940);" ><b><span
-							style="color: #996633;"><span style="color: #ff6600;" class="popup" onclick="myFunction()"><%c.getProfesor();%><span class="popuptext" id="myPopup">&#11088; &#11088; &#11088;</span></span></span></b></th>
+							style="color: #996633;"><span style="color: #ff6600;" class="popup" onclick="myFunction()"><%out.println(c.getProfesor());%><span class="popuptext" id="myPopup">&#11088; &#11088; &#11088;</span></span></span></b></th>
 					<th
 						style="vertical-align: inherit; background: linear-gradient(#FFDA63, #FFB940);"><b><span
-							style="color: #ff6600;"><%c.getHorario();%><br>
+							style="color: #ff6600;"><%out.println(c.getFecha());%><br>
 						</span></b></th>
 
 					<th style="vertical-align: inherit;"><b><span
 							style="color: #ff6600;"><button
-									href="ReservaClase?num=<%="aca va id clase"%>">Agregar
+									href="ReservaClase?num=<%out.println(c.getIdClase());%>">Agregar
 									a reserva</button> <br> </span></b></th>
 
 				</tr>

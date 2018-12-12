@@ -1,6 +1,10 @@
 package com.abcSchool.servlets;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Calendar;
+
+import javax.naming.CommunicationException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -38,7 +42,14 @@ public class ReservaClase extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String idClase=request.getParameter("num");
-		//BusinessDelegate.getInstancia().altaReserva(idReserva, descuento, monto, cantAlum, paga, fecha, dniAlumno, clases);
+		ArrayList<String> res = new ArrayList<String>();
+		res.add(idClase);
+		try {
+			BusinessDelegate.getInstancia().altaReserva(-1, 0f, 400f, 1, false, Calendar.getInstance().getTime(), "1", res);
+		} catch (CommunicationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		//BusinessDelegate.getInstancia().generarFactura(idReserva, tipo, remitente, medioPago);
 	}
 
