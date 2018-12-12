@@ -95,7 +95,7 @@
 %>
 
 	<table align="center" width="100%">
-		<form action="" name="formulario" method="post">
+		<form action="ReservaClase" name="formulario" method="post">
 			<tbody>
 				<tr>
 					<th 
@@ -125,8 +125,7 @@
 						</span></b></th>
 
 					<th style="vertical-align: inherit;"><b><span
-							style="color: #ff6600;"><button
-									href="ReservaClase?num=<%out.println(c.getIdClase());%>">Agregar
+							style="color: #ff6600;"><button type="submit" name=num value=<%out.println(c.getIdClase());%>">Agregar
 									a reserva</button> <br> </span></b></th>
 
 				</tr>
@@ -134,6 +133,7 @@
 					}
 				%>
 			</tbody>
+			</form>
 	</table>
 	</table>
 	<button>Reservar</button>
